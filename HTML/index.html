@@ -8,7 +8,6 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../CSS/style.css">
     <title>FW Chap 4 Challenge</title>
-    <script src="../JavaScript/tryout.js" async></script>
 </head>
 
 <body>
@@ -36,7 +35,7 @@
 
     <div class="d-flex flex-row bd-highlight mb-0">
         <div class="col-5">
-            <img src="../Images/batu.png" alt="image batu" class="batu" id="playerBatu" value="batu">
+            <img src="../Images/batu.png" alt="image batu" class="batu" id="batu" value="batu">
         </div>
         <div class="col-2"> </div>
         <div class="col-5">
@@ -46,10 +45,10 @@
 
     <div class="d-flex flex-row bd-highlight mb-0">
         <div class="col-5">
-            <img src="../Images/kertas.png" alt="image kertas" class="kertas" id="playerKertas">
+            <img src="../Images/kertas.png" alt="image kertas" class="kertas" id="kertas">
         </div>
         <div class="col-2"> 
-            <h4>VS</h4>
+            <h4 ID=vsAction>VS</h4>
         </div>
         <div class="col-5">
             <img src="../Images/kertas.png" alt="image kertas" class="kertas" id="comKertas">
@@ -58,20 +57,21 @@
 
     <div class="d-flex flex-row bd-highlight mb-0">
         <div class="col-5">
-            <img src="../Images/gunting.png" alt="image gunting" class="gunting" id=playerGunting>
+            <img src="../Images/gunting.png" alt="image gunting" class="gunting" id="gunting">
         </div>
         <div class="col-2"> </div>
         <div class="col-5">
-            <img src="../Images/gunting.png" alt="image gunting" class="gunting" id=comGunting>
+            <img src="../Images/gunting.png" alt="image gunting" class="gunting" id="comGunting">
         </div>
     </div>
 
     <div class="d-flex flex-row bd-highlight mb-0">
-        <div class="col-12">
-            <a href="#"><img src="../Images/refresh.png" class="refresh"></a>
+        <div class="col-12" id=refreshAction>
+            <a href="#"><img src="../Images/refresh.png" class="refresh" id="refreshAction"></a>
         </div>
     </div>
 
+    <script src="../JavaScript/app.js" charset="utf-8" async></script>
 </body>
 
 </html>

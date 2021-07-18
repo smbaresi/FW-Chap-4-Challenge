@@ -83,6 +83,10 @@ h4 {
   animation:spin 4s linear infinite;
 }
 
+@keyframes spin { 
+  100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } 
+  }
+
 .batu:hover {
   animation: shake 0.5s;
   animation-iteration-count: infinite;
@@ -112,6 +116,17 @@ h4 {
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
-@keyframes spin { 
-100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } 
+
+
+.greyBox-js{
+  background-color: #C4C4C4, 100%;
+  border-radius: 15%;
+
 }
+
+.winlosebackground-js{
+  background-color: #4C9654;
+  font-size: 38px;
+  color: #C4C4C4, 100%;
+}
+
