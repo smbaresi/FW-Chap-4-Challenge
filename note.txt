@@ -1,0 +1,18 @@
+Guideline OOP Challenge Chapter 4
+
+1. Jelaskan pengertiannya!
+2. Jelaskan di bagian mana hal-hal dibawah ini diimplentasikan pada kode anda! (kosongkan jika tidak diimplementasikan)
+
+class:
+object:
+method:
+
+constructor:
+properties:
+
+encapsulation:
+abstraction:
+inheritance:
+polymorphism:
+
+visibility modifier:

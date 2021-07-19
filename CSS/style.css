@@ -79,12 +79,14 @@ h4 {
   margin-right: auto;
 }
 
-.refresh:active{
+.refresh:hover{
   animation:spin 4s linear infinite;
+  transition-duration: 4s;
+
 }
 
 @keyframes spin { 
-  100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } 
+  100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } 
   }
 
 .batu:hover {
@@ -119,14 +121,17 @@ h4 {
 
 
 .greyBox-js{
-  background-color: #C4C4C4, 100%;
+  background-color: #C4C4C4;
+  padding: 10px;
   border-radius: 15%;
-
+  color: #C4C4C4;
 }
 
 .winlosebackground-js{
   background-color: #4C9654;
   font-size: 38px;
   color: #C4C4C4, 100%;
+  transform: rotateZ(-25deg);
+  transition-property: (img);
 }
 
