@@ -10,12 +10,12 @@ const [
     playerGreyBox_div,
     comGreyBox_div,
     batu_div,
-    kertas_div, 
+    kertas_div,
     gunting_div,
     batu2_div,
-    kertas2_div, 
+    kertas2_div,
     gunting2_div,
-    ] = [
+] = [
     document.getElementById("playerScore"),
     document.getElementById("comScore"),
     document.getElementById("vsAction"),
@@ -31,96 +31,91 @@ const [
 ]
 
 
-function getComputerChoice() {
-    const choices = ["batu", "kertas", "gunting"]
-    const randomNumber = Math.floor(Math.random() * 3);
-    return choices[randomNumber];
-}
-
-function main() {
-    batu_div.addEventListener('click', function () {
-        game("batu")
-        isReady = false
-    })
-
-    kertas_div.addEventListener('click', function () {
-        game("kertas")
-        isReady = false
-    })
-
-    gunting_div.addEventListener('click', function () {
-        game("gunting")
-        isReady = false
-    })
-    refresh_div.addEventListener('click', function (){
-        reload()
-        isReady = true
-    })
-    
-}
-
-function game(userChoice) {
-    const computerChoice = getComputerChoice();
-    if(isReady) {
-        switch (userChoice + computerChoice) {
-            case "batugunting":
-            case "kertasbatu":
-            case "guntingkertas":
-                win(userChoice, computerChoice);
-                break;
-            case "batukertas":
-            case "kertasgunting":
-            case "guntingbatu":
-                lose(userChoice, computerChoice);
-                break;
-            case "batubatu":
-            case "kertaskertas":
-            case "guntinggunting":
-                draw(userChoice, computerChoice);
-                break;
-        }    
+class GameMain {
+    constructor() {
+        const choices = ["batu", "kertas", "gunting"]
+        const randomNumber = Math.floor(Math.random() * 3);
+        this.computerChoice = choices[randomNumber]
     }
-    else {
-        alert("Reload dl coi")
+
+    game(userChoice) {
+        if (isReady) {
+            switch (userChoice + this.computerChoice) {
+                case "batugunting":
+                case "kertasbatu":
+                case "guntingkertas":
+                    this.win(userChoice, this.computerChoice);
+                    break;
+                case "batukertas":
+                case "kertasgunting":
+                case "guntingbatu":
+                    this.lose(userChoice, this.computerChoice);
+                    break;
+                case "batubatu":
+                case "kertaskertas":
+                case "guntinggunting":
+                    this.draw(userChoice, this.computerChoice);
+                    break;
+            }
+        } else {
+            alert("Reload dl coi")
+        }
+    }
+
+    win(userChoice, computerChoice) {
+        vs_div.innerHTML = "PLAYER 1 WIN".fontsize(38);
+        vs_div.classList.add("winlosebackground-js");
+        playerScore++;
+        playerScore_span.innerHTML = playerScore;
+        comScore_span.innerHTML = comScore;
+        document.getElementById(userChoice).classList.add("greyBox-js");
+        document.getElementById(computerChoice + "2").classList.add("greyBox-js");
+    }
+
+    lose(userChoice, computerChoice) {
+        vs_div.innerHTML = "COM WIN".fontsize(38);
+        vs_div.classList.add("winlosebackground-js");
+        comScore++;
+        playerScore_span.innerHTML = playerScore;
+        comScore_span.innerHTML = comScore;
+        document.getElementById(userChoice).classList.add("greyBox-js");
+        document.getElementById(computerChoice + "2").classList.add("greyBox-js");
+    }
+
+    draw(userChoice, computerChoice) {
+        vs_div.innerHTML = "DRAW".fontsize(38);
+        vs_div.classList.add("winlosebackground-js");
+        document.getElementById(userChoice).classList.add("greyBox-js");
+        document.getElementById(computerChoice + "2").classList.add("greyBox-js");
+    }
+
+    reload() {
+        batu_div.classList.remove("greyBox-js");
+        kertas_div.classList.remove("greyBox-js");
+        gunting_div.classList.remove("greyBox-js");
+        batu2_div.classList.remove("greyBox-js");
+        kertas2_div.classList.remove("greyBox-js");
+        gunting2_div.classList.remove("greyBox-js");
     }
 }
 
-function win(userChoice, computerChoice) {
-    vs_div.innerHTML = "PLAYER 1 WIN".fontsize(38);
-    vs_div.classList.add("winlosebackground-js");
-    playerScore++;
-    playerScore_span.innerHTML = playerScore;
-    comScore_span.innerHTML = comScore;
-    document.getElementById(userChoice).classList.add("greyBox-js");
-    document.getElementById(computerChoice+"2").classList.add("greyBox-js");
-}
+let mygame = new GameMain()
 
-function lose(userChoice, computerChoice) {
-    vs_div.innerHTML = "COM WIN".fontsize(38);
-    vs_div.classList.add("winlosebackground-js");
-    comScore++;
-    playerScore_span.innerHTML = playerScore;
-    comScore_span.innerHTML = comScore;
-    document.getElementById(userChoice).classList.add("greyBox-js");
-    document.getElementById(computerChoice+"2").classList.add("greyBox-js");
+batu_div.addEventListener('click', function () {
+    mygame.game("batu")
+    isReady = false
+})
 
-}
+kertas_div.addEventListener('click', function () {
+    mygame.game("kertas")
+    isReady = false
+})
 
-function draw(userChoice, computerChoice) {
-    vs_div.innerHTML = "DRAW".fontsize(38);
-    vs_div.classList.add("winlosebackground-js");
-    document.getElementById(userChoice).classList.add("greyBox-js");
-    document.getElementById(computerChoice+"2").classList.add("greyBox-js");
-}
-
-function reload() {
-    batu_div.classList.remove("greyBox-js");
-    kertas_div.classList.remove("greyBox-js");
-    gunting_div.classList.remove("greyBox-js");
-    batu2_div.classList.remove("greyBox-js");
-    kertas2_div.classList.remove("greyBox-js");
-    gunting2_div.classList.remove("greyBox-js");
-    // location.reload()
-}
-
-main()
+gunting_div.addEventListener('click', function () {
+    mygame.game("gunting")
+    isReady = false
+})
+refresh_div.addEventListener('click', function () {
+    mygame.reload()
+    isReady = true
+})

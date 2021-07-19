@@ -42,8 +42,6 @@ h4 {
   text-align: center;
 }
 
-
-
 .batu {
   width: 134px;
   height: 128px;
@@ -82,7 +80,6 @@ h4 {
 .refresh:hover{
   animation:spin 4s linear infinite;
   transition-duration: 4s;
-
 }
 
 @keyframes spin { 
@@ -118,20 +115,16 @@ h4 {
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
-
-
 .greyBox-js{
   background-color: #C4C4C4;
   padding: 10px;
   border-radius: 15%;
-  color: #C4C4C4;
 }
 
 .winlosebackground-js{
   background-color: #4C9654;
   font-size: 38px;
-  color: #C4C4C4, 100%;
+  color: #C4C4C4;
   transform: rotateZ(-25deg);
   transition-property: (img);
 }
-
