@@ -33,12 +33,10 @@ const [
 
 class GameMain {
     constructor() {
-        const choices = ["batu", "kertas", "gunting"]
-        const randomNumber = Math.floor(Math.random() * 3);
-        this.computerChoice = choices[randomNumber]
     }
 
     game(userChoice) {
+        const computerChoice = this.getComputerChoice();
         if (isReady) {
             switch (userChoice + this.computerChoice) {
                 case "batugunting":
@@ -60,6 +58,12 @@ class GameMain {
         } else {
             alert("Reload dl coi")
         }
+    }
+
+    getComputerChoice() {
+    const choices = ["batu", "kertas", "gunting"]
+    const randomNumber = Math.floor(Math.random() * 3);
+    this.computerChoice = choices[randomNumber]
     }
 
     win(userChoice, computerChoice) {
